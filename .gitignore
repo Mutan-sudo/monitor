@@ -1,0 +1,13 @@
+# 编译中间产物
+*.o
+*.a
+*.so
+
+# 可执行文件
+main
+server
+client
+
+# 临时文件
+*.log
+*.swp
