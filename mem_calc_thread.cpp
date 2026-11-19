@@ -2,6 +2,7 @@
 #include"collect.hpp"
 #include<iostream>
 #include<cstdio>
+#include"safe_print.hpp"
 void mem_calc_thread(){
     while (running)
     {
@@ -18,7 +19,7 @@ void mem_calc_thread(){
             mem_queue.pop();
         }
         double Memory_usage = 100.0*(mem.mem_total-mem.mem_available)/mem.mem_total;
-        printf("内存占用率: %.2f%%\n", Memory_usage);
+        safe_print("内存占用率: %.2f%%\n", Memory_usage);
     }
     
 }

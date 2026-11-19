@@ -2,6 +2,7 @@
 #include"collect.hpp"
 #include<iostream>
 #include<cstdio>
+#include"safe_print.hpp"
 void cpu_calc_thread(){
     CpuStat prev;
     bool has_prev=false;
@@ -40,7 +41,7 @@ void cpu_calc_thread(){
             cpu_usage = 100.0 * (delta_total - delta_idle) / delta_total;
         }
 
-        printf("CPU使用率: %.2f%%\n", cpu_usage);
+        safe_print("CPU使用率: %.2f%%\n", cpu_usage);
 
         prev=curr;
         
