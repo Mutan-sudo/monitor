@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -g -std=c++17 -pthread
+CXXFLAGS = -Wall -g -std=c++20 -pthread 
 
 TARGET = main
 # ✅暂时拿掉collect_mem.cpp！等写完再加回来
@@ -16,7 +16,7 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS) -lfmt
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@

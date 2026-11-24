@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <iostream>
 #include <inttypes.h>
+#include"safe_print.hpp"
 
 bool collect_cpu(CpuStat& st)
 {
@@ -38,7 +39,7 @@ int ret = sscanf(buf, "cpu %" SCNu64 " %" SCNu64 " %" SCNu64 " %" SCNu64 " %" SC
 
     if(ret != 7)
     {
-        std::cout << "sscanf 处理CPU数据失败" << std::endl;
+        safe_print("sscanf 处理CPU数据失败" );
         return false;
     }
     return true;

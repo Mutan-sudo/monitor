@@ -12,8 +12,9 @@ void collect_mem_thread(){
             {{
                 std::lock_guard<std::mutex> lp(mtx_mem);
                 mem_queue.push(st);
-            }
+            
               cv_mem.notify_one();  
+            }
             }
         
         std::this_thread::sleep_for(std::chrono::seconds(2));   

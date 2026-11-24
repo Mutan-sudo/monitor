@@ -15,7 +15,7 @@ void cpu_calc_thread(){
             cv_cpu.wait(lk,[&]{return !running||!cpu_queue.empty();});
             if (!running && cpu_queue.empty())
             {
-                std::cout<<"队列空了，消费者退出"<<std::endl;
+                safe_print("队列空了，消费者退出");
                 return;
             }
             curr = cpu_queue.front();
@@ -41,7 +41,7 @@ void cpu_calc_thread(){
             cpu_usage = 100.0 * (delta_total - delta_idle) / delta_total;
         }
 
-        safe_print("CPU使用率: %.2f%%\n", cpu_usage);
+        safe_print("CPU使用率: {:.2f}%\n", cpu_usage);
 
         prev=curr;
         
