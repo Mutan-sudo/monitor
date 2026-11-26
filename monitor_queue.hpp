@@ -13,10 +13,12 @@ inline std::condition_variable cv_cpu;
 inline std::queue<MemStat>mem_queue;
 inline std::mutex mtx_mem;
 inline std::condition_variable cv_mem;
-inline std::atomic<bool>running{true};
+inline std::atomic<bool>g_stop{false};
 void collect_cpu_thread();
 void collect_mem_thread();
 void cpu_calc_thread();
 void mem_calc_thread();
+void signal_thread_func();
+void input_thread_func();
 
 #endif

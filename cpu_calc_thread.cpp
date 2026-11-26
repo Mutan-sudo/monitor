@@ -7,15 +7,15 @@ void cpu_calc_thread(){
     CpuStat prev;
     bool has_prev=false;
     
-    while (running)
+    while (!g_stop)
     {
         CpuStat curr;
         {
             std::unique_lock<std::mutex>lk(mtx_cpu);
-            cv_cpu.wait(lk,[&]{return !running||!cpu_queue.empty();});
-            if (!running && cpu_queue.empty())
+            cv_cpu.wait(lk,[&]{return g_stop||!cpu_queue.empty();});
+            if (g_stop && cpu_queue.empty())
             {
-                safe_print("队列空了，消费者退出");
+                safe_print("队列空了，消费者退出\n");
                 return;
             }
             curr = cpu_queue.front();

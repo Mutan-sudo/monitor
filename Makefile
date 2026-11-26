@@ -9,7 +9,9 @@ SRCS = main.cpp \
        collect_cpu.cpp\
 	   collect_mem_thread.cpp\
 	   mem_calc_thread.cpp\
-	   collect_mem.cpp
+	   collect_mem.cpp\
+	   signal_thread_func.cpp\
+	   input_thread_func.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

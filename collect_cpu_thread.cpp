@@ -5,7 +5,7 @@
 #include<thread>
 //std::atomic<bool>running{true};
 void collect_cpu_thread(){
-    while (running)
+    while (!g_stop)
     {
         CpuStat st;
         if(collect_cpu(st)){

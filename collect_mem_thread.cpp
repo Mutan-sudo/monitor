@@ -4,7 +4,7 @@
 
 void collect_mem_thread(){
     
-    while (running)
+    while (!g_stop)
     {
         MemStat st;
         

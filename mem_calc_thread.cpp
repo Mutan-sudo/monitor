@@ -4,15 +4,15 @@
 #include<cstdio>
 #include"safe_print.hpp"
 void mem_calc_thread(){
-    while (running)
+    while (!g_stop)
     {
         MemStat mem;
         {
             std::unique_lock<std::mutex> lp(mtx_mem);
-            cv_mem.wait(lp,[&]{return !mem_queue.empty()||!running;});
-            if (!running && mem_queue.empty())
+            cv_mem.wait(lp,[&]{return !mem_queue.empty()||g_stop;});
+            if (g_stop && mem_queue.empty())
             {
-                safe_print("队列空了，消费者退出");
+                safe_print("队列空了，消费者退出\n");
                 return;
             }
             mem = mem_queue.front();
