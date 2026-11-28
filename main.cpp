@@ -25,7 +25,7 @@ int main(){
     t_collect_mem.join();
     t_calc_mem.join();
     t_signal.join();
-    t_input.join();
+    t_input.detach();
     
 
     safe_print("程序执行完毕\n");

@@ -20,9 +20,18 @@ void signal_thread_func()
         if (ret == SIGINT) {
             safe_print("收到 SIGINT(Ctrl+C)\n");
             g_stop = true;
+            {
+        std::lock_guard<std::mutex> lk(mtx_cpu);
+        cv_cpu.notify_all();
+    }
+    {
+        std::lock_guard<std::mutex> lk(mtx_mem);
+        cv_mem.notify_all();
+    }
         } else if (ret == SIGTERM) {
             safe_print("收到 SIGTERM\n");
             g_stop = true;
+            
         } else if (ret == -1 && errno != EAGAIN && errno != EINTR) {
             // 发生错误
             break;
@@ -38,4 +47,5 @@ void signal_thread_func()
         std::lock_guard<std::mutex> lk(mtx_mem);
         cv_mem.notify_all();
     }
+   
 }
