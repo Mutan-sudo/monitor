@@ -32,10 +32,10 @@ make
 # 2. Ctrl + C 发送 SIGINT 信号退出
 
 ## 运行效果
-![运行效果](./assets/run_demo.png)
+![运行效果](assets/run_demo.png)
 
 ## Helgrind 校验
-![Helgrind 效果](./assets/helgrind.png)
+![Helgrind 效果](assets/helgrind.png)
 
 ## Memcheck 内存检测
-![Memcheck 效果](./assets/memcheck.png)
+![Memcheck 效果](assets/memcheck.png)
