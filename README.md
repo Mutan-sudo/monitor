@@ -31,11 +31,8 @@ make
 # 1. 输入 q / 回车 正常退出
 # 2. Ctrl + C 发送 SIGINT 信号退出
 
-## 运行效果
-![运行效果](assets/run_demo.png)
-
-## Helgrind 校验
-![Helgrind 效果](assets/helgrind.png)
-
-## Memcheck 内存检测
-![Memcheck 效果](assets/memcheck.png)
+<img alt="运行演示" src="assets/run_demo.png">
+<br>
+<img alt="Helgrind 校验结果" src="assets/helgrind.png">
+<br>
+<img alt="Memcheck 内存检测结果" src="assets/memcheck.png">
